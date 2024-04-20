@@ -3,9 +3,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
-public class PracticeForm {
+public class PracticeFormTest {
 
     @BeforeAll
     static void beforeAll() {
@@ -34,7 +35,7 @@ public class PracticeForm {
         $("#subjectsContainer").click();
         $("#subjectsInput").setValue("English").pressEnter();
         $("label[for='hobbies-checkbox-1']").click();
-        $("label[for='hobbies-checkbox-2']").click();
+        $("label[for='hobbies-checkbox-3']").click();
         $("#uploadPicture").uploadFromClasspath("file.png");
         $("#currentAddress").setValue("Street 999");
         $("#state").click();
@@ -42,6 +43,18 @@ public class PracticeForm {
         $("#city").click();
         $("#react-select-4-input").setValue("Karnal").pressEnter();
         $("#submit").click();
+
+
+        $(".table-responsive").shouldHave(text("Igor Evsin"));
+        $(".table-responsive").shouldHave(text("Evsin19@gmail.com"));
+        $(".table-responsive").shouldHave(text("Male"));
+        $(".table-responsive").shouldHave(text("0000000000"));
+        $(".table-responsive").shouldHave(text("20 October,1998"));
+        $(".table-responsive").shouldHave(text("English"));
+        $(".table-responsive").shouldHave(text("Sports, Music"));
+        $(".table-responsive").shouldHave(text("Haryana Karnal"));
+        $(".table-responsive").shouldHave(text("Street 999"));
+        $(".table-responsive").shouldHave(text("file.png"));
 
     }
 
