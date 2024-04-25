@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormTest {
@@ -23,19 +24,27 @@ public class PracticeFormTest {
     @Test
     void fillFormTests() {
         open("/automation-practice-form");
+        executeJavaScript("$('footer').remove();");
+        executeJavaScript("$('#fixedban').remove();");
+
         $("#firstName").setValue("Igor");
         $("#lastName").setValue("Evsin");
         $("#userEmail").setValue("Evsin19@gmail.com");
-        $("label[for='gender-radio-1']").click();
+//        $("label[for='gender-radio-1']").click();
+        $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("0000000000");
-        $("[id=dateOfBirthInput]").click();
-        $("[class=react-datepicker__year-select]>[value='1998']").click();
-        $("[class=react-datepicker__month-select]>[value='9']").click();
-        $(".react-datepicker__month .react-datepicker__day--020").click();
+        $("#dateOfBirthInput").click();
+//        $("[class=react-datepicker__year-select]>[value='1998']").click();
+        $(".react-datepicker__year-select").selectOption("1998");
+//        $("[class=react-datepicker__month-select]>[value='9']").click();
+        $(".react-datepicker__month-select").selectOption("October");
+        $(".react-datepicker__day--020").click();
         $("#subjectsContainer").click();
         $("#subjectsInput").setValue("English").pressEnter();
-        $("label[for='hobbies-checkbox-1']").click();
-        $("label[for='hobbies-checkbox-3']").click();
+        $("#hobbiesWrapper").$(byText("Sports")).click();
+//        $("label[for='hobbies-checkbox-1']").click();
+        $("#hobbiesWrapper").$(byText("Music")).click();
+//        $("label[for='hobbies-checkbox-3']").click();
         $("#uploadPicture").uploadFromClasspath("file.png");
         $("#currentAddress").setValue("Street 999");
         $("#state").click();
