@@ -2,7 +2,6 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import components.CalendarComponent;
-import components.DateComponent;
 import components.TableResultComponent;
 
 import static com.codeborne.selenide.Condition.cssClass;
@@ -36,7 +35,7 @@ public class PracticeFormPage {
 
     CalendarComponent calendarComponent = new CalendarComponent();
     TableResultComponent tableResult = new TableResultComponent();
-    DateComponent dateComponent = new DateComponent();
+
 
     public PracticeFormPage openPage(){
         open(endPoint);
