@@ -1,4 +1,4 @@
-package components;
+package pages.components;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

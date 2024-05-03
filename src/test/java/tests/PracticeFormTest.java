@@ -2,7 +2,7 @@ package tests;
 import org.junit.jupiter.api.Test;
 import pages.PracticeFormPage;
 
-import static components.DateComponent.dateNow;
+import static pages.components.DateComponent.dateNow;
 
 public class PracticeFormTest extends TestBase{
 
