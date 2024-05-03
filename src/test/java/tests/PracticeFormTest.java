@@ -27,16 +27,16 @@ public class PracticeFormTest extends TestBase{
                         .setCity("Delhi")
                         .submit()
 
-                        .tableResult("Student Name","Igor Evsin")
-                        .tableResult("Student Email","Evsin19@gmail.com")
-                        .tableResult("Gender","Male")
-                        .tableResult("Mobile","0000000000")
-                        .tableResult("Date of Birth","20 October,1998")
-                        .tableResult("Subjects","English")
-                        .tableResult("Hobbies","Sports, Music")
-                        .tableResult("Picture","file.png")
-                        .tableResult("Address","Street 999")
-                        .tableResult("State and City","NCR Delhi");
+                        .checkResult("Student Name","Igor Evsin")
+                        .checkResult("Student Email","Evsin19@gmail.com")
+                        .checkResult("Gender","Male")
+                        .checkResult("Mobile","0000000000")
+                        .checkResult("Date of Birth","20 October,1998")
+                        .checkResult("Subjects","English")
+                        .checkResult("Hobbies","Sports, Music")
+                        .checkResult("Picture","file.png")
+                        .checkResult("Address","Street 999")
+                        .checkResult("State and City","NCR Delhi");
 
 
     }
@@ -51,9 +51,9 @@ public class PracticeFormTest extends TestBase{
                         .setUserNumber("0000000000")
                         .submit()
 
-                        .tableResult("Student Name", "Igor Evsin")
-                        .tableResult("Gender", "Male")
-                        .tableResult("Date of Birth", dateNow());
+                        .checkResult("Student Name", "Igor Evsin")
+                        .checkResult("Gender", "Male")
+                        .checkResult("Date of Birth", dateNow());
     }
 
     @Test
@@ -62,7 +62,7 @@ public class PracticeFormTest extends TestBase{
         practiceFormPage.openPage()
                         .submit()
 
-                        .formValidation();
+                        .checkValidation();
     }
 
 

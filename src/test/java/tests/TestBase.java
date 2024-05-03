@@ -10,9 +10,9 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.browserSize = "1920x1080"; // Разрешение браузера
-        Configuration.baseUrl = "https://demoqa.com"; // Задать урл
-        Configuration.pageLoadStrategy = "eager"; // Параметры загрузки страницы
+        Configuration.browserSize = "1920x1080";
+        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.pageLoadStrategy = "eager";
     }
 
     @AfterEach

@@ -2,7 +2,7 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import components.CalendarComponent;
-import components.TableResultComponent;
+import components.CheckResultComponent;
 
 import static com.codeborne.selenide.Condition.cssClass;
 import static com.codeborne.selenide.Selectors.byText;
@@ -34,7 +34,7 @@ public class PracticeFormPage {
 
 
     CalendarComponent calendarComponent = new CalendarComponent();
-    TableResultComponent tableResult = new TableResultComponent();
+    CheckResultComponent checkResult = new CheckResultComponent();
 
 
     public PracticeFormPage openPage(){
@@ -113,12 +113,12 @@ public class PracticeFormPage {
         return this ;
     }
 
-    public PracticeFormPage tableResult(String key, String value){
-        tableResult.result(key,value);
+    public PracticeFormPage checkResult(String key, String value){
+        checkResult.result(key,value);
         return this ;
     }
 
-    public PracticeFormPage formValidation(){
+    public PracticeFormPage checkValidation(){
         userForm.shouldHave(cssClass("was-validated"));
         return this;
     }
