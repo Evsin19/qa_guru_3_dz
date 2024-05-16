@@ -1,42 +1,43 @@
 package tests;
 import org.junit.jupiter.api.Test;
 import pages.PracticeFormPage;
+import utils.TestData;
 
 import static pages.components.DateComponent.dateNow;
 
-public class PracticeFormTest extends TestBase{
 
+public class PracticeFormTest extends TestBase{
+    TestData testData = new TestData();
     PracticeFormPage practiceFormPage = new PracticeFormPage();
 
     @Test
     void fullFormTests() {
 
         practiceFormPage.openPage()
-                        .setFirstName("Igor")
-                        .setLastName("Evsin")
-                        .setUserEmail("Evsin19@gmail.com")
-                        .setGenterWrapper("Male")
-                        .setUserNumber("0000000000")
-                        .setDateOfBirth("20", "October", "1998")
-                        .setSubjectsContainer("English")
-                        .setHobbiesWrapper("Sports")
-                        .setHobbiesWrapper("Music")
-                        .uploadPicture("file.png")
-                        .setCurrentAddress("Street 999")
-                        .setState("NCR")
-                        .setCity("Delhi")
+                        .setFirstName(testData.firstName)
+                        .setLastName(testData.lastName)
+                        .setUserEmail(testData.userEmail)
+                        .setGenterWrapper(testData.gender)
+                        .setUserNumber(testData.userNumber)
+                        .setDateOfBirth(testData.day, testData.month, testData.year)
+                        .setSubjectsContainer(testData.subject)
+                        .setHobbiesWrapper(testData.hobbie)
+                        .uploadPicture(testData.picture)
+                        .setCurrentAddress(testData.currentAddress)
+                        .setState(testData.state)
+                        .setCity(testData.city)
                         .submit()
 
-                        .checkResult("Student Name","Igor Evsin")
-                        .checkResult("Student Email","Evsin19@gmail.com")
-                        .checkResult("Gender","Male")
-                        .checkResult("Mobile","0000000000")
-                        .checkResult("Date of Birth","20 October,1998")
-                        .checkResult("Subjects","English")
-                        .checkResult("Hobbies","Sports, Music")
-                        .checkResult("Picture","file.png")
-                        .checkResult("Address","Street 999")
-                        .checkResult("State and City","NCR Delhi");
+                        .checkResult("Student Name", testData.firstName + " " + testData.lastName)
+                        .checkResult("Student Email", testData.userEmail)
+                        .checkResult("Gender", testData.gender)
+                        .checkResult("Mobile", testData.userNumber)
+                        .checkResult("Date of Birth", testData.day + " " + testData.month + "," +testData.year)
+                        .checkResult("Subjects",testData.subject)
+                        .checkResult("Hobbies",testData.hobbie)
+                        .checkResult("Picture",testData.picture)
+                        .checkResult("Address",testData.currentAddress)
+                        .checkResult("State and City",testData.state + " " + testData.city);
 
 
     }
@@ -45,14 +46,14 @@ public class PracticeFormTest extends TestBase{
     void minFormTests() {
 
         practiceFormPage.openPage()
-                        .setFirstName("Igor")
-                        .setLastName("Evsin")
-                        .setGenterWrapper("Male")
-                        .setUserNumber("0000000000")
+                        .setFirstName(testData.firstName)
+                        .setLastName(testData.lastName)
+                        .setGenterWrapper(testData.gender)
+                        .setUserNumber(testData.userNumber)
                         .submit()
 
-                        .checkResult("Student Name", "Igor Evsin")
-                        .checkResult("Gender", "Male")
+                        .checkResult("Student Name", testData.firstName + " " + testData.lastName)
+                        .checkResult("Gender", testData.gender)
                         .checkResult("Date of Birth", dateNow());
     }
 
